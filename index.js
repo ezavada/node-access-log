@@ -59,7 +59,7 @@ function accesslog(req, res, format, cb) {
     var data = {
       ':clfDate': strftime('%d/%b/%Y:%H:%M:%S %z', end),
       ':contentLength': res.getHeader('content-length') || contentLength || '-',
-      ':delta': delta,
+      ':delta': delta ? delta : '0',
       ':endDate': end.toISOString(),
       ':endTime': end.getTime(),
       ':host': encode(req.headers.host || '-'),
